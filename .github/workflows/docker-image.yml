@@ -14,4 +14,5 @@ jobs:
       run: docker build . --file Dockerfile --tag astyle
     - name: ls docker image
       run: docker image ls
-
+    - name: Run
+      run: ./run.sh
