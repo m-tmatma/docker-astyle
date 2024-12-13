@@ -15,9 +15,8 @@ int main()
     else if ( a == 1) {
         printf("Hello, World!\n");
     }
-    else {
+    else
         printf("Hello, World!\n");
-    }
 
     do {
         printf("Hello, World!\n");
