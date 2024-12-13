@@ -16,3 +16,8 @@ jobs:
       run: docker image ls
     - name: Run
       run: ./run.sh
+    - name: artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output
+        path: output/
