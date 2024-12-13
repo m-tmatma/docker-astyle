@@ -24,6 +24,6 @@ for style in "${styles[@]}"; do
     mkdir -p    "output/$style"
     cp -a src/* "output/$style"
     echo "Running $style"
-    docker run -v $(pwd)/output/$style:/output astyle astyle -n --style=$style "/output/main.c"
+    docker run -v $(pwd)/output/$style:/output astyle astyle -n --add-braces --style=$style "/output/main.c"
 done
 
