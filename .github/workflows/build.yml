@@ -25,7 +25,7 @@ jobs:
         mkdir build
         cmake -S . -B build
         cmake --build build
-        cmake --build build --target install
+        sudo cmake --build build --target install
         astyle --version
 
     - run: ./run2.sh
