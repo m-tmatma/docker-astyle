@@ -1,0 +1,37 @@
+name: build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y make gcc g++ cmake git
+
+    - name: Checkout GitLab repository
+      run: |
+        git clone https://gitlab.com/saalen/astyle.git
+
+    - name: build
+      run: |
+        cd astyle
+        mkdir build
+        cmake -S . -B build
+        cmake --build build
+        cmake --build build --target install
+        astyle --version
+
+    - run: ./run2.sh
+
+    - name: artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output
+        path: output/
